@@ -39,7 +39,7 @@ const PRODUCTS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 let products = [];
 
 // 2. Add caching
-const CACHE_DURATION = 1000 * 60 * 15; // 15 minutes
+const CACHE_DURATION = 1000 * 60 * 30; // 15 minutes
 let lastFetch = 0;
 
 // 3. Smart fetching with cache
