@@ -1,0 +1,42 @@
+// Search Messages
+"mafamech produit bil ism hetha" → "Aucun produit trouvé avec ce nom"
+
+// Cart Related
+"7ot fil panier" → "Ajouter au panier"
+"Add to Cart" → "Ajouter au panier"
+"Added Items" → "Articles ajoutés"
+"Mazidt chy lil panier mte3ik" → "Votre panier est vide"
+"Buy" → "Acheter"
+"irja3 bech t7ot 7weyij fil panier" → "Continuer vos achats"
+
+// Checkout Form
+"Enter Your Details" → "Vos coordonnées"
+"ismik kemil" → "Nom complet"
+"noumro telifounik" → "Numéro de téléphone"
+"email" → "Adresse e-mail"
+"7ot inti mnin" → "Sélectionnez votre ville"
+"Your Address" → "Votre adresse"
+
+// Validation Messages
+"Please enter your name" → "Veuillez saisir votre nom"
+"Invalid name" → "Nom invalide"
+"Please enter your phone number" → "Veuillez saisir votre numéro"
+"Phone number should follow the format: 50 101 300" → "Format du numéro: 50 101 300"
+"Please select your city" → "Veuillez choisir votre ville"
+"Please enter your home address" → "Veuillez saisir votre adresse"
+
+// Checkout Messages
+"Minimum Purchase Required" → "Achat minimum requis"
+"Please add at least ${MIN_PURCHASE} items" → "Veuillez ajouter au moins ${MIN_PURCHASE} articles"
+"Confirm Purchase" → "Confirmer l'achat"
+"Total Items:" → "Total articles:"
+"Total Price:" → "Prix total:"
+"Includes a free sticker!" → "Sticker gratuit inclus!"
+"Confirm" → "Confirmer"
+"Cancel" → "Annuler"
+
+// Final Steps
+"Sending..." → "Envoi en cours..."
+"9e3din n3adiwlik fil command mte3ik" → "Traitement de votre commande"
+"Demand Reached" → "Commande reçue"
+"wsol ! taw nkalmouk 3la 9rib nchallah." → "Merci! Nous vous contacterons bientôt."

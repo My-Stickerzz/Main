@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <link rel="shortcut icon" href="/img/sc.png" type="image/x-icon">
+    <title>My Stickerzz - Stickers Vinyle Personnalisés & Décalcomanies</title>
+    <meta name="title" content="My Stickerzz - Stickers Vinyle Personnalisés & Décalcomanies" />
+    <meta name="description"
+        content="Achetez des stickers vinyles personnalisés premium et des designs uniques. Qualité garantie avec livraison rapide!" />
+    <meta name="keywords"
+        content="stickers, stickers personnalisés, décalcomanies vinyle, boutique stickers, designs personnalisés">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="My Stickerzz - Stickers Vinyle Personnalisés" />
+    <meta property="og:description" content="Achetez des stickers vinyles personnalisés premium" />
+    <meta property="og:image" content="/img/store-logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://mystickerzz.com/" />
+    <meta property="twitter:title" content="My Stickerzz - Custom Vinyl Stickers & Decals" />
+    <meta property="twitter:description" content="Shop premium custom vinyl stickers and decals" />
+    <meta property="twitter:image" content="/img/store-logo.png" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <center>
+            <button style="right:6%;top: 4%;z-index: +9999;position: fixed;display: none;"
+                class="navbar-text btn btn-warning mt-2" onclick="openCart()" id="mybutton"><i
+                    class="fa fa-cart-shopping"></i></button>
+        </center>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="container mt-5 pt-5">
+        <div class="text-center">
+            <img src="img/store-logo.png" class="img-fluid" alt="Logo Boutique">
+            <h1 class="mt-4">Bienvenue chez My Stickerzz</h1>
+            <p class="lead">Découvrez des stickers uniques pour tous les styles</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <input class="form-control mb-3" type="search" id="myInput" onkeyup="SearchFunction()"
+                    placeholder="Rechercher des produits"><br>
+                <hr><br>
+                <div class="form-check"></div>
+                <br><br><br>
+            </div>
+            <div class="col-md-9">
+                <center>
+                    <div id="product-list" class="row"></div>
+                </center>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br>
+    <hr><br><br>
+    <!-- Features Section -->
+    <section class="container my-5">
+        <center>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="img/sc.png" width="80%" class="img-fluid" alt="Services">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="mb-4">Nos Services</h2>
+                    <div class="feature-list">
+                        <div class="feature-item mb-4">
+                            <p><i class="fas fa-truck text-warning fa-lg"></i> Livraison 48h en Tunisie</p>
+                            <small class="text-muted">Livraison partout en Tunisie - Nous livrons votre commande où que
+                                vous soyez</small>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <p><i class="fas fa-award text-warning fa-lg"></i> Meilleure qualité</p>
+                            <small class="text-muted">Nous vous assurons la meilleure qualité du marché</small>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <p><i class="fas fa-tags text-warning fa-lg"></i> Meilleures offres</p>
+                            <small class="text-muted">Nous vous proposons les meilleurs prix</small>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <p><i class="fas fa-sync text-warning fa-lg"></i> Mises à jour mensuelles</p>
+                            <small class="text-muted">Nouveaux designs chaque semaine</small>
+                        </div>
+
+                        <div class="feature-item mb-4">
+                            <p><i class="fas fa-envelope text-warning fa-lg"></i> Suivi par email</p>
+                            <small class="text-muted">Restez informé de votre commande</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </section>
+
+    <br><br><br><br><br>
+    <hr><br><br>
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">À Propos</h2>
+                <p class="text-muted">My Stickerzz est une boutique en ligne leader de stickers vinyles personnalisés.
+                    Nous proposons une large gamme de designs et de styles parmi lesquels choisir. Nos stickers sont
+                    fabriqués avec du vinyle de haute qualité, durable et résistant. Que vous cherchiez un sticker
+                    personnalisé pour votre voiture, ordinateur portable ou bouteille d'eau, nous avons ce qu'il vous
+                    faut!</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://cdn.discordapp.com/attachments/1117203199674286110/1320943840911429763/319957508_136175685940350_4677609595785630686_n.png?ex=676b7051&is=676a1ed1&hm=8b2a2cd1d463965786e63e775032b07c909c41a5f32bcd84b67961d28953e8cf&"
+                    class="img-fluid card" max-height="50px" alt="About Us">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container my-5">
+        <h2 class="text-center mb-4">Contactez-nous</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Votre Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Votre Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" placeholder="Votre Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-block">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warning py-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <p class="mb-0">© 2024 My Stickerzz. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

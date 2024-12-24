@@ -1,0 +1,140 @@
+/* Update font import */
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    font-family: 'Amaranth', sans-serif;
+    color: #ffac33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Amaranth', sans-serif;
+    font-weight: 700;
+    color: #ffac33;
+}
+
+p {
+    font-family: 'Amaranth', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+/* Color Utilities */
+.text-gold { color: #ffac33 !important; }
+.text-dark-gold { color: #b87a00 !important; }
+.text-orange { color: #ff9800 !important; }
+.text-gray { color: #808080 !important; }
+.text-light-gray { color: #a0a0a0 !important; }
+.text-dark-gray { color: #2a2a2a !important; }
+
+/* Loading animation */
+.card-img-wrapper {
+    position: relative;
+    background: #2a2a2a;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.card-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 172, 51, 0.2),
+        transparent
+    );
+    animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #2a2a2a 25%,
+        #3a3a3a 50%,
+        #2a2a2a 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+/* Divider styling */
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    background: linear-gradient(90deg, transparent, #9c27b0, transparent);
+    margin: 1rem 0;
+}
+.horizontal-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.horizontal-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 8px;
+}
+.horizontal-card-body {
+    flex: 1;
+}
+.card-title {
+    margin-bottom: 0.5rem;
+}
+.card-text {
+    margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 600px) {
+    label{
+        display: inline-block;
+        border-left: solid;
+        padding-left: 2px;
+        width: 200px;
+        border-right: solid;
+    }
+    .foot h3{
+        font-size: larger;
+    }
+    .foot-logo{
+        width: 100%;
+    }
+    .welcome{
+        font-size: 150%;
+        font-weight: bold;
+    }
+}
+@media screen and (min-width: 600px) {
+    .foot-logo{
+        width: 50%;
+    }
+    .welcome{
+        font-size: 300%;
+        font-weight: bold;
+    }
+}
+label{
+    display: inline-block;
+    cursor: pointer;
+    border-left: solid;
+    padding-left: 2px;
+    width: 200px;
+    user-select: none;
+}
+#product-list,h2{
+    font-family: "Amaranth", system-ui;
+    font-style: bold;
+}
+.sss{
+    width: 10%;
+    background-repeat: repeat-x;
+    rotate: 90deg;
+}
