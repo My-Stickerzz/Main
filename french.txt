@@ -3,9 +3,9 @@
 
 // Cart Related
 "7ot fil panier" → "Ajouter au panier"
-"Add to Cart" → "Ajouter au panier"
+"Add to Cart" → "Ajouter"
 "Added Items" → "Articles ajoutés"
-"Mazidt chy lil panier mte3ik" → "Votre panier est vide"
+"Mazidt chy lil panier mte3ik" → "Votre panier est vide"-------------------------------------------------------
 "Buy" → "Acheter"
 "irja3 bech t7ot 7weyij fil panier" → "Continuer vos achats"
 
