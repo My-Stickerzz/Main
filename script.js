@@ -1,22 +1,10 @@
-// Add these constants at the top
+
 const PRICING = {
   TIER1: { max: 39, price: 0.750 },
   TIER2: { max: 80, price: 0.600 },
   TIER3: { price: 0.500 }
 };
 const MIN_PURCHASE = 12;
-
-// Add color constants at top
-// const COLORS = {
-//   PRIMARY: '#ffac33',    // Gold
-//   SECONDARY: '#9c27b0',  // Purple
-//   DARK: '#000000',       // Black
-//   LIGHT: '#ffffff',      // White
-//   ACCENT: '#673ab7',     // Deep Purple
-//   SUCCESS: '#4caf50',    // Green
-//   WARNING: '#ff9800',    // Orange
-//   INFO: '#2196f3'        // Blue
-// };
 const COLORS = {
   // Primary Colors
   PRIMARY: '#ffac33',    // Gold
@@ -33,12 +21,91 @@ const COLORS = {
   GRAY: '#808080',       // Medium Gray
   GRAY_LIGHT: '#a0a0a0'  // Light Gray
 };
-// Modify your products array
-// 1. Split data and fetch logic
-const PRODUCTS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-let products = [];
+// Add this near your color constants
+const SWAL_THEME = {
+  background: COLORS.DARK,
+  color: COLORS.LIGHT,
+  confirmButtonColor: COLORS.PRIMARY,
+  cancelButtonColor: COLORS.SECONDARY,
+  buttonsStyling: true,
+  customClass: {
+      popup: 'styled-modal',
+      title: 'styled-title',
+      htmlContainer: 'styled-content',
+      confirmButton: 'styled-confirm',
+      cancelButton: 'styled-cancel',
+      input: 'styled-input'
+  }
+};
+// Add this to your existing style tag or CSS file
+const styles = `
+  .styled-modal {
+      background: ${COLORS.DARK} !important;
+      border: 2px solid ${COLORS.PRIMARY} !important;
+      color: ${COLORS.LIGHT} !important;
+  }
+  .styled-title {
+      color: ${COLORS.PRIMARY} !important;
+      font-weight: bold !important;
+  }
+  .styled-content {
+      color: ${COLORS.LIGHT} !important;
+  }
+  .styled-confirm {
+      background: ${COLORS.PRIMARY} !important;
+      color: ${COLORS.DARK} !important;
+      font-weight: bold !important;
+  }
+  .styled-cancel {
+      background: ${COLORS.SECONDARY} !important;
+      color: ${COLORS.LIGHT} !important;
+  }
+  .styled-input {
+      background: ${COLORS.DARK} !important;
+      border: 1px solid ${COLORS.PRIMARY} !important;
+      color: ${COLORS.LIGHT} !important;
+  }
+`;
+// Add this at the start of your script
+document.head.insertAdjacentHTML('beforeend', `<style>${styles}</style>`);
 
-// 2. Add caching
+const PRODUCTS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+const products = [
+  {
+    name: "Product 1",
+    price: 27.000,
+    image: "/product/product.avif",
+    intro: "Product with great reviews",
+    category: "pack",
+    theme:"shoufli 7al"
+  },
+  {
+    name: "Product 2",
+    price: 0.750,
+    image: "/product/product.avif",
+    intro: "A bad product",
+    category: "sticker",
+    theme:"math"
+  },
+  {
+    name: "Product 3",
+    price: 0.750,
+    image: "/product/product.avif",
+    intro: "Too expensive product",
+    category: "sticker",
+    theme:"computer"
+  },
+  {
+    name: "Product 4",
+    price: 0.750,
+    image: "/product/product.avif",
+    intro: "Too cheap product",
+    category: "sticker",
+    theme:"computer"
+  },
+];
+
+
 const CACHE_DURATION = 1000 * 60 * 30; // 15 minutes
 let lastFetch = 0;
 
@@ -101,6 +168,8 @@ function scrollFunction() {
 const PRODUCTS_PER_PAGE = 12;
 let currentPage = 1;
 
+displayProducts()
+
 function displayProducts(productsToShow = products) {
     const productListDiv = document.getElementById("product-list");
     productListDiv.innerHTML = "";
@@ -111,17 +180,16 @@ function displayProducts(productsToShow = products) {
     
     paginatedProducts.forEach((product) => {
       const productCard = `
-            <div class="col-lg-4 col-md-6 col-sm-6 mb-4 product">
+            <div class="col-6 col-md-6 col-lg-4 mb-3 product">
                 <div class="card" style="background: ${COLORS.DARK}; border: 2px solid ${COLORS.PRIMARY} !important;">
                     <div class="card-img-wrapper skeleton">
                         <img src="${product.image}" 
-                            class="card-img-top" 
+                            class="card-img-top btn" 
                             alt="product img" 
                             loading="lazy"
                             onload="this.parentElement.classList.remove('skeleton'); this.classList.add('loaded')"
                             onclick="description('${product.intro}', '${product.image}', '${product.name}', '${product.price}')"
                             style="transition: transform 0.3s ease;">
-                        <div class="card-img-overlay" style="background: linear-gradient(180deg, transparent 60%, ${COLORS.DARK}90);"></div>
                     </div>
               </div>
               <div class="card-body text-white">
@@ -134,7 +202,7 @@ function displayProducts(productsToShow = products) {
                       onmouseover="this.style.background='${COLORS.SECONDARY}'"
                       onmouseout="this.style.background='${COLORS.PRIMARY}'"
                       onclick="confirmAddToCart('${product.name}', ${product.price}, '${product.intro}', '${product.image}')">
-                      Add to Cart
+                      Ajouter
                   </button>
               </div>
           </div>
@@ -144,6 +212,57 @@ function displayProducts(productsToShow = products) {
     });
     
     displayPagination(productsToShow.length);
+}
+
+
+function description(intro, image, productName, price) {
+  Swal.fire({
+    ...SWAL_THEME,
+    title: `<h3 class="text-warning font-weight-bold mb-4">${productName}</h3>`,
+    html: `
+      <div class="container-fluid p-0">
+        <div class="row g-4">
+          <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="position-relative" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <img src="${image}" 
+                class="img-fluid w-100" 
+                style="object-fit: cover; aspect-ratio: 1/1; transition: all 0.3s ease;"
+                onmouseover="this.style.transform='scale(1.05)'; this.style.filter='brightness(1.1)'"
+                onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-between">
+            <div class="px-3">
+              <p class="text-light lead mb-4" style="font-size: 1.1rem; line-height: 1.8; letter-spacing: 0.3px;">
+                ${intro}
+              </p>
+            </div>
+            <div class="px-3 mt-auto">
+              <button class="btn btn-lg w-100" 
+                style="background: ${COLORS.PRIMARY}; color: ${COLORS.DARK}; font-weight: bold; transition: all 0.3s ease;"
+                onmouseover="this.style.background='${COLORS.SECONDARY}'"
+                onmouseout="this.style.background='${COLORS.PRIMARY}'"
+                onclick="confirmAddToCart('${productName}', ${price}, '${intro}', '${image}')">
+                Ajouter au panier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
+    backdrop: 'rgba(0,0,0,0.85)',
+    showConfirmButton: false,
+    background: COLORS.DARK,
+    width: '90%',
+    maxWidth: '1000px',
+    padding: '2rem',
+    showCloseButton: true,
+    customClass: {
+      container: 'animated fadeIn',
+      popup: 'animated fadeInUp faster',
+      closeButton: 'btn-close btn-close-white'
+    }
+  });
 }
 
 function displayPagination(totalProducts) {
@@ -234,7 +353,7 @@ function SearchFunction() {
       if (!noResultsMessage) {
           noResultsMessage = document.createElement("h3");
           noResultsMessage.id = "no-results-message";
-          noResultsMessage.innerHTML = `<div class="container mt-5"><center>mafamech produit bil ism hetha "${input.value}"</center></div>`;
+          noResultsMessage.innerHTML = `<div class="container mt-5"><center>Aucun produit trouvé avec ce nom "${input.value}"</center></div>`;
           noResultsMessage.style.color = "red";
           div.appendChild(noResultsMessage);
       } else{
@@ -244,9 +363,6 @@ function SearchFunction() {
       noResultsMessage.remove();
   }
 }
-
-displayProducts()
-
 
 // Get unique themes after products array
 const themes = [...new Set(products.map(product => product.theme))];
@@ -263,93 +379,6 @@ function displayFilteredProducts() {
     displayProducts(filteredProducts);
 }
 
-// Add this near your color constants
-const SWAL_THEME = {
-  background: COLORS.DARK,
-  color: COLORS.LIGHT,
-  confirmButtonColor: COLORS.PRIMARY,
-  cancelButtonColor: COLORS.SECONDARY,
-  buttonsStyling: true,
-  customClass: {
-      popup: 'styled-modal',
-      title: 'styled-title',
-      htmlContainer: 'styled-content',
-      confirmButton: 'styled-confirm',
-      cancelButton: 'styled-cancel',
-      input: 'styled-input'
-  }
-};
-
-// Add this to your existing style tag or CSS file
-const styles = `
-  .styled-modal {
-      background: ${COLORS.DARK} !important;
-      border: 2px solid ${COLORS.PRIMARY} !important;
-      color: ${COLORS.LIGHT} !important;
-  }
-  .styled-title {
-      color: ${COLORS.PRIMARY} !important;
-      font-weight: bold !important;
-  }
-  .styled-content {
-      color: ${COLORS.LIGHT} !important;
-  }
-  .styled-confirm {
-      background: ${COLORS.PRIMARY} !important;
-      color: ${COLORS.DARK} !important;
-      font-weight: bold !important;
-  }
-  .styled-cancel {
-      background: ${COLORS.SECONDARY} !important;
-      color: ${COLORS.LIGHT} !important;
-  }
-  .styled-input {
-      background: ${COLORS.DARK} !important;
-      border: 1px solid ${COLORS.PRIMARY} !important;
-      color: ${COLORS.LIGHT} !important;
-  }
-`;
-
-// Add this at the start of your script
-document.head.insertAdjacentHTML('beforeend', `<style>${styles}</style>`);
-
-
-function description(intro, image, productName) {
-  Swal.fire({
-        ...SWAL_THEME,
-        title: `<h2 class="fw-bold text-dark mb-3">${productName}</h2>`,
-    html: `
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="card border-0">
-              <div class="card-body text-center p-4">
-                <div class="mb-4">
-                  <img src="${image}" 
-                    class="img-fluid rounded shadow-sm hover-zoom" 
-                    style="max-height: 300px; object-fit: cover;"
-                    onmouseover="this.classList.add('shadow')"
-                    onmouseout="this.classList.remove('shadow')">
-                </div>
-                <p class="card-text lead text-secondary">
-                  ${intro}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `,
-    backdrop: 'rgba(0,0,0,0.4)',
-    showConfirmButton: false,
-    background: "#ffffff",
-    width: '600px',
-    showCloseButton: true,
-    customClass: {
-      container: 'product-modal'
-    }
-  });
-}
 function confirmAddToCart(productName, price, intro, image) {
   Swal.fire({
         ...SWAL_THEME,
@@ -360,7 +389,7 @@ function confirmAddToCart(productName, price, intro, image) {
                     <img src="${image}" alt="${productName}" style="width: 100%;"><hr>
                     <h5>${productName}</h5>
                     <input type="number" id="quantity" class="swal2-input" placeholder="Quantity" min="1" max="10" value="1" style="width: 30%;">
-                    <button class="swal2-confirm swal2-styled" onclick="addToCart('${productName}', ${price}, document.getElementById('quantity').value)">Add to Cart</button>
+                    <button class="swal2-confirm swal2-styled" onclick="addToCart('${productName}', ${price}, document.getElementById('quantity').value)">Ajouter</button>
             </div>
         `,
     showConfirmButton: false,
@@ -419,7 +448,7 @@ function addToCart(productName, price, quantity) {
 function openCart() {
   let cartContent = "<h6>Added Items</h6>";
   if (shoppingCart.length === 0) {
-    cartContent += "<p>Mazidt chy lil panier mte3ik</p>";
+    cartContent += "<p>Votre panier est vide</p>";
     // Change the cart button icon back to the regular icon
     cartButton.classList.remove("fa-cart-plus");
     cartButton.classList.add("fa-cart-shopping");
