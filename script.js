@@ -93,7 +93,7 @@ const products = [
   {
     name: "#Pack Van Gogh",
     price: 27.000,
-    image: "IMG-0791.jpg",
+    image: "IMG-0791.JPG",
     intro: "Van Gogh Pack <br> pack with 18 different high quality stickers in the theme of Van Gogh <br> Product with great reviews",
     category: "pack",
     theme:"Van Gogh"
