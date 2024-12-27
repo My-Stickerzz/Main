@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 mb-3">
         <center>
             <button style="right:6%;top: 4%;z-index: +9999;position: fixed;display: none;"
                 class="navbar-text btn btn-warning mt-2" onclick="openCart()" id="mybutton"><i
@@ -41,13 +41,41 @@
 
     <!-- Hero Section -->
     <section id="home" class="container">
-        <div class="text-center">
+        <div class="text-center ">
             <a href="#hi"><img src="img/store-logo.png" class="img-fluid" alt="Logo Boutique"></a>
+            <br><br><br><br><br>    
             <h1 id="hi" class="mt-4 py-5">Bienvenue chez My Stickerzz</h1>
-            <p class="lead">Découvrez des stickers uniques pour tous les styles</p>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">À Propos</h2>
+                <p class="text-muted">My Stickerzz est une boutique en ligne leader de stickers vinyles personnalisés.
+                    Nous proposons une large gamme de designs et de styles parmi lesquels choisir. Nos stickers sont
+                    fabriqués avec du vinyle de haute qualité, durable et résistant. Que vous cherchiez un sticker
+                    personnalisé pour votre voiture, ordinateur portable ou bouteille d'eau, nous avons ce qu'il vous
+                    faut!</p>
+                    <br>
+                    <button class="px-16 mb-8 custom-btn" id="random-text-btn" onclick="window.location.href='#display'">
+                        Ajouter au panier
+                      </button>
+            </div>
+            <div class="col-md-6 ttr"><hr><br>
+                <img src="https://cdn.discordapp.com/attachments/1117203199674286110/1320943840911429763/319957508_136175685940350_4677609595785630686_n.png?ex=676b7051&is=676a1ed1&hm=8b2a2cd1d463965786e63e775032b07c909c41a5f32bcd84b67961d28953e8cf&"
+                    class="img-fluid card" max-height="50px" alt="About Us">
+            </div>
+        </div>
+    </section>    
+    <br><br><br><br><br>
+    <hr><br><br>
+    <section id="display" class="container">
+        <div class="text-center">
+            <h1 class="mt-4 py-5 lead">Découvrez des stickers uniques pour tous les styles</h1>
+        </div>
+    </section>
     <!-- Products Section -->
     <section id="products" class="container my-5">
         <div class="row">
@@ -110,23 +138,7 @@
 
     <br><br><br><br><br>
     <hr><br><br>
-    <!-- About Section -->
-    <section id="about" class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="mb-4">À Propos</h2>
-                <p class="text-muted">My Stickerzz est une boutique en ligne leader de stickers vinyles personnalisés.
-                    Nous proposons une large gamme de designs et de styles parmi lesquels choisir. Nos stickers sont
-                    fabriqués avec du vinyle de haute qualité, durable et résistant. Que vous cherchiez un sticker
-                    personnalisé pour votre voiture, ordinateur portable ou bouteille d'eau, nous avons ce qu'il vous
-                    faut!</p>
-            </div>
-            <div class="col-md-6">
-                <img src="https://cdn.discordapp.com/attachments/1117203199674286110/1320943840911429763/319957508_136175685940350_4677609595785630686_n.png?ex=676b7051&is=676a1ed1&hm=8b2a2cd1d463965786e63e775032b07c909c41a5f32bcd84b67961d28953e8cf&"
-                    class="img-fluid card" max-height="50px" alt="About Us">
-            </div>
-        </div>
-    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="container my-5">

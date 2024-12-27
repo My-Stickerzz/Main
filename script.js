@@ -68,25 +68,188 @@ const styles = `
 `;
 // Add this at the start of your script
 document.head.insertAdjacentHTML('beforeend', `<style>${styles}</style>`);
+document.addEventListener('DOMContentLoaded', function() {
+  const button = document.getElementById('random-text-btn');
+  const phrases = [
+    'Vazy chez nos Produits',
+    'Voir les produits',
+    'Accéder aux produits',
+    'Explorez les produits',
+    'Découvrez nos produits',
+    'Aller aux produits',
+    'Venez voir nos produits'
+  ];
+
+  // Randomly choose a phrase from the list
+  const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+
+  // Set the button text to the randomly chosen phrase
+  button.textContent = randomPhrase;
+});
+
 
 const PRODUCTS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 const products = [
   {
-    name: "Product 1",
+    name: "#Pack Van Gogh",
     price: 27.000,
-    image: "/product/product.avif",
-    intro: "Product with great reviews",
+    image: "IMG-0791.jpg",
+    intro: "Van Gogh Pack <br> pack with 18 different high quality stickers in the theme of Van Gogh <br> Product with great reviews",
     category: "pack",
-    theme:"shoufli 7al"
+    theme:"Van Gogh"
   },
   {
-    name: "Product 2",
-    price: 0.750,
-    image: "/product/product.avif",
-    intro: "A bad product",
-    category: "sticker",
-    theme:"math"
-  },
+      name: "IMG-0791",
+      price: 0.750,
+      image: "IMG-0791.JPG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1036",
+      price: 0.750,
+      image: "IMG-1036.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1044",
+      price: 0.750,
+      image: "IMG-1044.JPG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1046",
+      price: 0.750,
+      image: "IMG-1046.JPG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1038",
+      price: 0.750,
+      image: "IMG-1038.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1028",
+      price: 0.750,
+      image: "IMG-1028.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1029",
+      price: 0.750,
+      image: "IMG-1029.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "Product 2",
+      price: 0.750,
+      image: "/product/product.avif",
+      intro: "A bad product",
+      category: "sticker",
+      theme:"math"
+    },
+    {
+      name: "IMG-1034",
+      price: 0.750,
+      image: "IMG-1034.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1035",
+      price: 0.750,
+      image: "IMG-1035.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1041",
+      price: 0.750,
+      image: "IMG-1041.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1033",
+      price: 0.750,
+      image: "IMG-1033.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1039",
+      price: 0.750,
+      image: "IMG-1039.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "unnamed",
+      price: 0.750,
+      image: "unnamed.png",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1024",
+      price: 0.750,
+      image: "IMG-1024.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1030",
+      price: 0.750,
+      image: "IMG-1030.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1026",
+      price: 0.750,
+      image: "IMG-1026.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1037",
+      price: 0.750,
+      image: "IMG-1037.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
+    {
+      name: "IMG-1025",
+      price: 0.750,
+      image: "IMG-1025.PNG",
+      intro: "Van Gogh themed sticker",
+      category: "sticker",
+      theme: "Van Gogh"
+    },
   {
     name: "Product 3",
     price: 0.750,
@@ -231,9 +394,9 @@ function description(intro, image, productName, price) {
                 onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
             </div>
           </div>
-          <div class="col-lg-6 d-flex flex-column justify-content-between">
-            <div class="px-3">
-              <p class="text-light lead mb-4" style="font-size: 1.1rem; line-height: 1.8; letter-spacing: 0.3px;">
+          <div class="col-lg-6 d-flex flex-column justify-content-between align-content-center">
+            <div class="px-3 m-10">
+              <p class="text-light lead mb-4 intro-text" style="font-size: 1.1rem; line-height: 1.8; letter-spacing: 0.3px;">
                 ${intro}
               </p>
             </div>
@@ -254,7 +417,7 @@ function description(intro, image, productName, price) {
     showConfirmButton: false,
     background: COLORS.DARK,
     width: '90%',
-    maxWidth: '1000px',
+    maxWidth: '700px',
     padding: '2rem',
     showCloseButton: true,
     customClass: {
@@ -275,13 +438,13 @@ function displayPagination(totalProducts) {
     }
     
     paginationContainer.innerHTML = `
-        <button class="btn btn-warning mx-1" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+        <a href="#display"><button class="btn btn-warning mx-1" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
             <b><=</b>
         </button>
         <span class="mx-3 pt-2">Page ${currentPage} of ${totalPages}</span>
         <button class="btn btn-warning mx-1" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
             =<b>></b>
-        </button>
+        </button></a>
     `;
     
     document.getElementById("product-list").after(paginationContainer);
@@ -676,10 +839,10 @@ function sendProductToGoogleSheets(productName, price, count, userData) {
 
   const formData = new FormData();
   formData.append("productName", productName);
-  formData.append("price", price);
+  formData.append(price, price);
   formData.append("count", count);
   formData.append("phone", userData.phone);
-  formData.append("name", userData.name);
+  formData.append(name, userData.name);
   formData.append("location", userData.location);
   formData.append("addressResult", userData.address);
 
