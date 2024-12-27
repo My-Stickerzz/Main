@@ -30,6 +30,7 @@ p {
 .text-gold { color: #ffac33 !important; }
 .text-dark-gold { color: #b87a00 !important; }
 .text-orange { color: #ff9800 !important; }
+.bg-orange { background-color: #ff9800 !important; }
 .text-gray { color: #808080 !important; }
 .text-light-gray { color: #a0a0a0 !important; }
 .text-dark-gray { color: #2a2a2a !important; }
@@ -75,11 +76,52 @@ p {
         background-position: -200% 0;
     }
 }
-.form-check{
+.form-check {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .form-check-item {
+    position: relative;
+    width: 100%;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+  }
+  
+  .form-check-input {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .form-check-label {
+    display: block;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border-left: 2px solid ;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-check-input:checked + .form-check-label {
+    border: 2px solid #ff9800;
+    border-radius: 4px;
+  }
+  
+  .form-check-item:hover .form-check-label {
+    border-left-color: #ff9800;
+    background: rgba(255, 172, 51, 0.1);
+  }
+
 /* Divider styling */
 hr {
     display: block;
@@ -152,14 +194,7 @@ hr {
       }
 
 }
-label{
-    display: inline-block;
-    cursor: pointer;
-    border-left: solid;
-    padding-left: 2px;
-    width: 200px;
-    user-select: none;
-}
+
 #product-list,h2{
     font-family: "Amaranth", system-ui;
     font-style: bold;
