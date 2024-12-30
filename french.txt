@@ -5,7 +5,7 @@
 "7ot fil panier" → "Ajouter au panier"
 "Add to Cart" → "Ajouter"
 "Added Items" → "Articles ajoutés"
-"Mazidt chy lil panier mte3ik" → "Votre panier est vide"-------------------------------------------------------
+"Mazidt chy lil panier mte3ik" → "Votre panier est vide"
 "Buy" → "Acheter"
 "irja3 bech t7ot 7weyij fil panier" → "Continuer vos achats"
 
@@ -16,7 +16,7 @@
 "email" → "Adresse e-mail"
 "7ot inti mnin" → "Sélectionnez votre ville"
 "Your Address" → "Votre adresse"
-
+-------------------------------------------------------
 // Validation Messages
 "Please enter your name" → "Veuillez saisir votre nom"
 "Invalid name" → "Nom invalide"
@@ -24,7 +24,7 @@
 "Phone number should follow the format: 50 101 300" → "Format du numéro: 50 101 300"
 "Please select your city" → "Veuillez choisir votre ville"
 "Please enter your home address" → "Veuillez saisir votre adresse"
-
+-------------------------------------------------------
 // Checkout Messages
 "Minimum Purchase Required" → "Achat minimum requis"
 "Please add at least ${MIN_PURCHASE} items" → "Veuillez ajouter au moins ${MIN_PURCHASE} articles"

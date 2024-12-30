@@ -327,7 +327,7 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-const PRODUCTS_PER_PAGE = 12;
+const PRODUCTS_PER_PAGE = 15;
 let currentPage = 1;
 
 displayProducts();
@@ -645,7 +645,7 @@ function openCart() {
     });
     cartContent += `
             <div>
-                <button class="btn text-dark-gray bg-orange" onclick="checkout()" width="100%">Buy <i class="fa fa-dollar"></i></button>
+                <button class="btn text-dark-gray bg-orange" onclick="checkout()" width="100%">Acheter <i class="fa fa-dollar"></i></button>
             </div>
         `;
   }
@@ -653,7 +653,7 @@ function openCart() {
     ...SWAL_THEME,
     title: "Your shopping cart",
     html: cartContent,
-    confirmButtonText: "irja3 bech t7ot 7weyij fil panier",
+    confirmButtonText: "Continuer vos achats",
     confirmButtonColor: "#fc5d",
   });
 }
@@ -685,13 +685,13 @@ function updateCount(productName, newCount) {
 function promptUserData(callback) {
   Swal.fire({
     ...SWAL_THEME,
-    title: "Enter Your Details",
+    title: "Vos coordonnées",
     html:
-      '<input id="swal-input1" class="swal2-input" placeholder=ismik kemil">' +
-      '<input id="swal-input2" class="swal2-input" placeholder="noumro telifounik">' +
+      '<input id="swal-input1" class="swal2-input" placeholder=Nom complet">' +
+      '<input id="swal-input2" class="swal2-input" placeholder="Numéro de téléphone">' +
       '<input id="swal-input2" type="email" required class="swal2-input" placeholder="email">' +
       '<select id="swal-input3" class="swal2-input">' +
-      '<option value="" disabled selected>7ot inti mnin</option>' +
+      '<option value="" disabled selected>Sélectionnez votre ville</option>' +
       '<option value="Tunis">Tunis</option>' +
       '<option value="Sfax">Sfax</option>' +
       '<option value="Sousse">Sousse</option>' +
@@ -716,7 +716,7 @@ function promptUserData(callback) {
       '<option value="Tozeur">Tozeur</option>' +
       '<option value="Kef">Kef</option>' +
       "</select>" +
-      '<input id="swal-input4" class="swal2-input" placeholder="Your Address">',
+      '<input id="swal-input4" class="swal2-input" placeholder="Votre Adresse">',
     focusConfirm: false,
     preConfirm: () => {
       const name = document.getElementById("swal-input1").value;
@@ -729,30 +729,30 @@ function promptUserData(callback) {
       const phoneRegex = /\d{2}\d{3}\d{3}/;
 
       if (!name) {
-        Swal.showValidationMessage("Please enter your name");
+        Swal.showValidationMessage("Veuillez saisir votre nom");
         return false;
       } else if (!nameRegex.test(name)) {
-        Swal.showValidationMessage("Invalid name");
+        Swal.showValidationMessage("Nom invalide");
         return false;
       }
 
       if (!phone) {
-        Swal.showValidationMessage("Please enter your phone number");
+        Swal.showValidationMessage("Veuillez saisir votre numéro");
         return false;
       } else if (!phoneRegex.test(phone)) {
         Swal.showValidationMessage(
-          "Phone number should follow the format: 50 101 300"
+          "Format du numéro: 50 101 300"
         );
         return false;
       }
 
       if (!city) {
-        Swal.showValidationMessage("Please select your city");
+        Swal.showValidationMessage("Veuillez choisir votre ville");
         return false;
       }
 
       if (!address) {
-        Swal.showValidationMessage("Please enter your home address");
+        Swal.showValidationMessage("Veuillez saisir votre adresse");
         return false;
       }
 
@@ -790,8 +790,8 @@ function addFreeSticker() {
 function checkout() {
   if (!validatePurchase()) {
     Swal.fire({
-      title: "Minimum Purchase Required",
-      text: `Please add at least ${MIN_PURCHASE} items or include a pack item.`,
+      title: "Achat minimum requis",
+      text: `Veuillez ajouter au moins ${MIN_PURCHASE} articles or include a pack item.`,
       icon: "warning",
     });
     return;
@@ -809,20 +809,20 @@ function checkout() {
 
   promptUserData((userData) => {
     Swal.fire({
-      title: "Confirm Purchase",
+      title: "Confirmer l'achat",
       html: `
-              <p>Total Items: ${shoppingCart.reduce(
+              <p>Total articles: ${shoppingCart.reduce(
                 (sum, item) => sum + item.count,
                 0
               )}</p>
-              <p>Total Price: ${totalPrice.toFixed(3)} DT</p>
-              <p style="color: green;">✨ Includes a free sticker! ✨</p>
+              <p>Prix total: ${totalPrice.toFixed(3)} DT</p>
+              <p style="color: green;">✨ Sticker gratuit inclus! ✨</p>
           `,
       icon: "info",
       showCancelButton: true,
-      confirmButtonText: "Confirm",
+      confirmButtonText: "Confirmer",
       confirmButtonColor: "green",
-      cancelButtonText: "Cancel",
+      cancelButtonText: "Annuler",
       cancelButtonColor: "#6c757d",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -848,9 +848,9 @@ function checkout() {
 function sendProductToGoogleSheets(productName, price, count, userData) {
   Swal.fire({
     ...SWAL_THEME,
-    title: "Sending...",
+    title: "Envoi en cours...",
     titleColor: "#fc1111",
-    text: "9e3din n3adiwlik fil command mte3ik",
+    text: "Traitement de votre commande",
     icon: "info",
     allowOutsideClick: false,
     showConfirmButton: false,
@@ -879,8 +879,8 @@ function sendProductToGoogleSheets(productName, price, count, userData) {
       console.log("Product sent successfully:", productName);
       // Show success message
       Swal.fire({
-        title: "Demand Reached",
-        text: "wsol ! taw nkalmouk 3la 9rib nchallah.",
+        title: "Commande reçue",
+        text: "Merci! Nous vous contacterons bientôt.",
         imageUrl: "/img/sc.png",
         imageAlt: "Custom Success Icon",
         showConfirmButton: false,
